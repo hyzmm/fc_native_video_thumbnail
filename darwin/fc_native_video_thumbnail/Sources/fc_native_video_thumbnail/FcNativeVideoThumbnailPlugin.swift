@@ -47,8 +47,7 @@ public class FcNativeVideoThumbnailPlugin: NSObject, FlutterPlugin {
         let asset = AVURLAsset(url: srcUrl)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true
-        let time = CMTimeMakeWithSeconds(Float64(5), preferredTimescale: 100)
-        imageGenerator.generateCGImageAsynchronously(for: time) { cgImage, time, err in
+        imageGenerator.generateCGImageAsynchronously(for: .zero) { cgImage, time, err in
           do {
             if let err = err {
               DispatchQueue.main.async {
